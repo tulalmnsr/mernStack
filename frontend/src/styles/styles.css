@@ -62,7 +62,7 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #cccdd0;
-  background-color: #1a1d2c;
+  background-color:  #1a1d2c;
 }
 
 .heading-primary,
@@ -93,7 +93,7 @@ header {
   top: 0;
   z-index: 3;
   background-color: transparent;
-  background-image: linear-gradient(to bottom, #171a28, transparent 70%);
+  background-image: linear-gradient(to bottom, #494D5F, transparent 70%);
 }
 
 .logo-container {
@@ -114,7 +114,7 @@ header {
 .main-logo-icon {
   height: 2.8rem;
   width: 2.8rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .nav-signup {
@@ -159,7 +159,7 @@ header {
 
 .nav-item:hover,
 .nav-item:active {
-  background-color: #eb3656;
+  background-color: #845BB3;
 }
 
 .profile-icon {
@@ -199,7 +199,7 @@ header {
 
 .signup-button:hover,
 .login-button:hover {
-  background-color: #eb3656;
+  background-color: #845BB3;
   color: #d1d2d5;
 }
 
@@ -236,7 +236,7 @@ header {
 .logout-icon {
   width: 2.6rem;
   height: 2.6rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .customer-profile-btn {
@@ -278,7 +278,7 @@ header {
 }
 
 .mobile-nav-menu {
-  background-color: #171a28;
+  background-color: #494D5F;
   padding: 2.4rem 0;
   position: fixed;
   height: 100%;
@@ -308,8 +308,8 @@ header {
   width: 100%;
   text-align: left;
   color: #e6e6e6;
-  font-size: 2.4rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 400;
   letter-spacing: 0.75px;
   padding: 1.6rem 2.4rem;
   transition: all 0.3s;
@@ -319,7 +319,7 @@ header {
 .mobile-nav-name {
   color: #e6e6e6;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.75px;
   padding: 1.6rem 1.6rem 1.6rem 2.4rem;
   line-height: 1.6;
@@ -327,7 +327,7 @@ header {
 }
 
 .mobile-nav-item:hover {
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .mobile-nav-list-item {
@@ -397,7 +397,7 @@ header {
 }
 
 .signup-form-category span {
-  color: #eb3656;
+  color: #845BB3;
   font-weight: 700;
 }
 
@@ -417,7 +417,7 @@ header {
 
 .signup-form *:focus,
 .login-form *:focus {
-  outline: 2px solid #f59eae;
+  outline: 2px solid #D0BDF4;
 }
 
 .signup-form-category input:hover {
@@ -446,7 +446,7 @@ header {
 .form-icon {
   height: 2.4rem;
   width: 2.4rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .pass-icon {
@@ -465,7 +465,7 @@ header {
   font-family: inherit;
   font-family: 1.4rem;
   font-weight: 600;
-  background-color: #eb3656;
+  background-color: #845BB3;
   border-radius: 2.8rem;
   color: #e6e6e6;
   transition: all 0.4s;
@@ -473,9 +473,10 @@ header {
 }
 
 .btn-reg:hover {
-  background-color: #ef5e78;
+  background-color: #a17cca;
   transform: translateY(-0.05rem);
-  box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.3);
+  box-shadow: 0 1rem 1.8rem 0 rgba(148, 0, 211, 0.3);
+
 }
 
 /* ************ */
@@ -540,7 +541,7 @@ header {
 }
 
 .btn-full {
-  background-color: #eb3656;
+  background-color: #845BB3;
   color: #e6e6e8;
   transition: all 0.3s;
   border: none;
@@ -553,9 +554,9 @@ header {
 }
 
 .btn-full:hover {
-  background-color: #ef5e78;
+  background-color: #b88bec;
   transform: translateY(-0.4rem);
-  box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
+  box-shadow: 0 1rem 1.8rem 0 rgba(148, 0, 211, 0.16);
 }
 
 .btn-outline:hover,
@@ -592,7 +593,7 @@ header {
 }
 
 .hero-review-text span {
-  color: #eb3656;
+  color: #845BB3;
   font-weight: 700;
 }
 
@@ -634,7 +635,7 @@ header {
 }
 
 .heading-collection {
-  border-bottom: 4px solid #eb3656;
+  border-bottom: 4px solid #845BB3;
 }
 
 .home-collection-container {
@@ -726,8 +727,8 @@ header {
 .collection-icon {
   height: 1.4rem;
   width: 1.4rem;
-  color: #eb3656;
-  fill: #eb3656;
+  color: #845BB3;
+  fill: #845BB3;
 }
 
 .line-2,
@@ -745,7 +746,7 @@ header {
   top: 0;
   left: 50%;
   transform: translate(-50%, -100%);
-  background-color: #eb3656;
+  background-color: #845BB3;
   padding: 1.6rem 3.2rem;
   border: none;
   color: #e6e6e8;
@@ -772,7 +773,7 @@ header {
 }
 
 .book-btn:hover {
-  background-color: #ef5e78;
+  background-color: #a168e2;
 }
 
 /* **************** */
@@ -796,7 +797,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   line-height: 1.6;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .feature-contents {
@@ -820,11 +821,11 @@ header {
 }
 
 .feature-icon {
-  color: #eb3656;
+  color: #845BB3;
   height: 6.4rem;
   width: 6.4rem;
 
-  fill: #eb3656;
+  fill: #845BB3;
 }
 
 .feature-text-details {
@@ -856,7 +857,7 @@ header {
 
 .social-link:link,
 .social-link:visited {
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   padding: 1rem;
   border-radius: 50%;
   transition: all 0.3s;
@@ -864,15 +865,15 @@ header {
 
 .social-link:hover,
 .social-link:active {
-  background-color: #ef5e78;
-  border: 2px solid #ef5e78;
+  background-color: #a674e0;
+  border: 2px solid #a674e0;
   transform: translateY(-0.2rem);
 }
 
 .social-link-icon {
   height: 2.4rem;
   width: 2.4rem;
-  fill: #eb3656;
+  fill: #845BB3;
 }
 
 .social-link:hover .social-link-icon {
@@ -909,7 +910,7 @@ header {
 .footer-logo-icon {
   height: 3.8rem;
   width: 3.8rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .footer-logo-text {
@@ -976,7 +977,7 @@ header {
 .footer-link:hover,
 .footer-link:active,
 .footer-btn:hover {
-  color: #ef5e78;
+  color: #bd8df3;
 }
 
 /* ************** */
@@ -994,7 +995,7 @@ header {
   display: flex;
   flex-direction: column;
   line-height: 1.6;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .location-select-container select {
@@ -1014,7 +1015,7 @@ header {
 
 .location-select-container select:focus {
   outline: none;
-  box-shadow: 0 0 0 0.4rem rgba(239, 94, 120, 0.884);
+  box-shadow: 0 0 0 0.4rem rgba(150, 0, 211, 0.884);
 }
 
 .selected-location {
@@ -1049,7 +1050,7 @@ header {
 
 .movie-search-box:focus {
   outline: none;
-  box-shadow: 0 0 0 0.4rem rgba(239, 94, 120, 0.884);
+  box-shadow: 0 0 0 0.4rem rgba(150, 0, 211, 0.884);
 }
 
 /* *********************** */
@@ -1114,14 +1115,14 @@ header {
   font-size: 1.4rem;
   font-weight: 600;
   padding: 1.6rem 3.2rem;
-  background-color: #eb3656;
+  background-color: #845BB3;
   color: #e6e6e8;
   border-radius: 2.8rem;
   transition: all 0.3s;
 }
 
 .showtimes-details-btn:hover {
-  background-color: #ef5e78;
+  background-color: #8967af;
   transform: translateY(-0.4rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
@@ -1190,7 +1191,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   width: 11rem;
   height: 4.4rem;
   border-radius: 2.8rem;
@@ -1200,7 +1201,7 @@ header {
 }
 
 .showtimes-startime-btn:hover {
-  background-color: #ef5e78;
+  background-color: #8967af;
   transform: translateY(-0.4rem);
   border: 2px solid transparent;
 }
@@ -1218,7 +1219,7 @@ header {
 .genre-icon {
   height: 2.4rem;
   width: 2.4rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .genre-input-container {
@@ -1228,7 +1229,7 @@ header {
   position: relative;
   padding: 1rem 2.4rem;
   border-radius: 2.8rem;
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   transition: all 0.3s;
 }
 
@@ -1248,7 +1249,7 @@ header {
 }
 
 .genre-input-container:hover {
-  background-color: #ef5e78;
+  background-color: #8c68b6;
   transform: translateY(-0.2rem);
   border: 2px solid transparent;
 }
@@ -1290,7 +1291,7 @@ header {
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: 0.75px;
-  color: #eb3656;
+  color: #845BB3;
   margin-bottom: 3.2rem;
   padding-left: 2.4rem;
 }
@@ -1328,7 +1329,7 @@ header {
 }
 
 .ticket-movie-screen {
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   padding: 0.4rem;
   font-size: 1.2rem;
   font-weight: 500;
@@ -1370,7 +1371,7 @@ header {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: #eb3656;
+  color: #845BB3;
   font-weight: 500;
 }
 
@@ -1382,8 +1383,8 @@ header {
 .ticket-icon {
   height: 1.6rem;
   width: 1.6rem;
-  color: #eb3656;
-  fill: #eb3656;
+  color: #845BB3;
+  fill: #845BB3;
 }
 
 .ticket-btn,
@@ -1404,17 +1405,17 @@ header {
 }
 
 .ticket-btn-disabled {
-  background-color: #f17289;
+  background-color: #bd8df3;
 }
 
 .ticket-btn {
-  background-color: #eb3656;
+  background-color: #845BB3;
   transition: all 0.3s;
   cursor: pointer;
 }
 
 .ticket-btn:hover {
-  background-color: #ef5e78;
+  background-color: #bd8df3;
   transform: translateY(-0.4rem);
   box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
 }
@@ -1432,14 +1433,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   border-radius: 9px;
   transition: all 0.3s;
 }
 
 .pay-input-container:hover {
   box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
-  background-color: #ef5e78;
+  background-color: #8868ad;
   transform: translateY(-0.2rem);
   border: 2px solid transparent;
 }
@@ -1467,7 +1468,7 @@ header {
   font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 1.6;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .form-item-heading {
@@ -1534,8 +1535,8 @@ header {
 }
 
 .date-input-container:hover {
-  box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
-  background-color: #ef5e78;
+  box-shadow: 0 1rem 1.8rem 0 rgba(148, 0, 211, 0.16);
+  background-color: #b88bec;
   transform: translateY(-0.2rem);
 }
 
@@ -1593,7 +1594,7 @@ header {
 .movie-selector-icon {
   height: 3rem;
   width: 3rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .checkmark-icon {
@@ -1654,7 +1655,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   width: 8.6rem;
   height: 2.8rem;
   border-radius: 2.8rem;
@@ -1662,10 +1663,10 @@ header {
 }
 
 .time-input-container:hover {
-  box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
-  background-color: #ef5e78;
+  box-shadow: 0 1rem 1.8rem 0 rgba(148, 0, 211, 0.16);;
+  background-color: #bd8df3;
   transform: translateY(-0.2rem);
-  border: 2px solid #ef5e78;
+  border: 2px solid #8c68b6;
 }
 
 /* seat selector */
@@ -1754,7 +1755,7 @@ header {
 
 .available:hover {
   transform: translateY(-0.2rem);
-  background-color: #ef5e78;
+  background-color: #b88bec;
   box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
 }
 
@@ -1789,7 +1790,7 @@ header {
 }
 
 .seat-selected-demo {
-  background-color: #ef5e78;
+  background-color: #8c69b4;
 }
 
 /* ************* */
@@ -1821,7 +1822,7 @@ header {
 .aboutus-logo-icon {
   height: 4.8rem;
   width: 4.8rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .aboutus-logo-text {
@@ -1900,8 +1901,8 @@ header {
 .movie-info-icon {
   height: 2.4rem;
   width: 2.4rem;
-  color: #eb3656;
-  fill: #eb3656;
+  color: #845BB3;
+  fill: #845BB3;
 }
 
 .movie-info-genre-container {
@@ -1921,7 +1922,7 @@ header {
 }
 
 .movie-info-title {
-  color: #eb3656;
+  color: #845BB3;
   font-weight: 600;
 }
 
@@ -1938,7 +1939,7 @@ header {
 .movie-info-description-heading,
 .movie-info-screen-heading,
 .customer-info-heading {
-  color: #eb3656;
+  color: #845BB3;
   font-size: 3.2rem;
   font-weight: 500;
 }
@@ -2083,7 +2084,7 @@ header {
 }
 
 .form-movie-add *:focus {
-  outline: 4px solid #f59eae;
+  outline: 4px solid #bd8df3;
 }
 
 .form-movie-add div {
@@ -2112,7 +2113,7 @@ header {
   margin-top: 2.4rem;
   border-radius: 2.8rem;
   padding: 1.2rem 3.2rem;
-  background-color: #eb3656;
+  background-color: #845BB3;
   border: none;
   font-family: inherit;
   color: #e6e6e6;
@@ -2125,7 +2126,7 @@ header {
 }
 
 .btn-admin:hover {
-  background-color: #ef5e78;
+  background-color: #b88bec;
   transform: translateY(-0.2rem);
   box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
 }
@@ -2143,7 +2144,7 @@ header {
 .admin-icon {
   height: 2.8rem;
   width: 2.8rem;
-  color: #eb3656;
+  color: #845BB3;
 }
 
 /* admin showtimeAdd section */
@@ -2165,7 +2166,7 @@ header {
   display: flex;
   padding: 1.2rem 3.6rem;
   border-radius: 9px;
-  border: 2px solid #eb3656;
+  border: 2px solid #845BB3;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -2177,8 +2178,8 @@ header {
 }
 
 .admin-radio-input-container:hover {
-  box-shadow: 0 1rem 1.8rem 0 rgba(235, 54, 87, 0.16);
-  background-color: #ef5e78;
+  box-shadow: 0 1rem 1.8rem 0 rgba(148, 0, 211, 0.16);
+  background-color: #8c68b6;
   transform: translateY(-0.2rem);
   border: 2px solid transparent;
 }
@@ -2195,7 +2196,7 @@ header {
   margin-top: 1.6rem;
   margin-bottom: 1.4rem;
   font-size: 2rem;
-  color: #eb3656;
+  color: #845BB3;
   font-weight: 600;
   letter-spacing: 0.75px;
 }
@@ -2234,7 +2235,7 @@ header {
 }
 
 .admin-dashboard-category {
-  color: #eb3656;
+  color: #845BB3;
 }
 
 .admin-dashboard-val {

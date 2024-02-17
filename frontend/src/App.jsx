@@ -16,7 +16,8 @@ import { LoginModal } from "./modals/LoginModal";
 import { MobileNav } from "./components/MobileNav";
 import { PageLoader } from "./components/PageLoader";
 import { ScrollToTop } from "./components/ScrollToTop";
-
+import Contact from "./pages/Contact/Contact";
+import Cinemas from "./pages/Cinemas/CinemasPage";
 import HomePage from "./pages/Home/HomePage";
 
 const PurchasePage = lazy(() => import("./pages/Purchase/PurchasePage"));
@@ -82,7 +83,8 @@ function App() {
             </Route>
 
             <Route path="/aboutus" element={<AboutUsPage />} />
-
+            <Route path="/contactus" element={<Contact />} />
+            <Route path="/cinemas" element={<Cinemas />} />
             <Route
               path="/movieDetails"
               element={<Navigate replace to="/movieDetails/1" />}

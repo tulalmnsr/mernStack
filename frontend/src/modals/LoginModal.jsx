@@ -69,7 +69,7 @@ export const LoginModal = () => {
       >
         <div className="signup-form-heading">
           <h2 className="signup-form-heading-text">
-            Log Into Your ASHO DEKHI Account
+            Log Into Your CITY MOVIE Account
           </h2>
           <button
             type="button"

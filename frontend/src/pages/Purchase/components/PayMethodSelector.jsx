@@ -7,7 +7,7 @@ export const PayMethodSelector = () => {
 
   const checkedColor = (val) => {
     return {
-      backgroundColor: val === userPayMethod ? "#ef5e78" : "",
+      backgroundColor: val === userPayMethod ? "#DODF4" : "",
       border: val === userPayMethod ? "2px solid transparent" : "",
     };
   };

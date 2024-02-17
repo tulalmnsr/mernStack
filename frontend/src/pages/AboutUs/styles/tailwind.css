@@ -1,0 +1,28 @@
+/* src/tailwind.css or src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom colors */
+@layer utilities {
+  .from-purple-600 {
+    --tw-gradient-from: #845BB3;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
+  }
+
+  .to-blue-300 {
+    --tw-gradient-to: #A0D2EB;
+  }
+
+  .active-link {
+    background-color: rgba(169, 169, 169, 0.2); /* Transparent grey */
+    color: #fff; /* Text color when active */
+  }
+
+  .hover\:bg-opacity-70:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white on hover */
+  }
+}
+.bg-footer-color {
+    background-color: #494D5F;
+  }

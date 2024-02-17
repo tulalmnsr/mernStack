@@ -40,7 +40,7 @@ export const Features = () => {
       </h2>
 
       {loading ? (
-        <HashLoader cssOverride={override} color="#eb3656" />
+        <HashLoader cssOverride={override} color="#845BB3" />
       ) : (
         <div className="feature-contents">{featuresHtml}</div>
       )}

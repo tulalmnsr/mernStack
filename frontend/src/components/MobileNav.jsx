@@ -77,6 +77,28 @@ export const MobileNav = () => {
               About Us
             </button>
           </li>
+          <li className="mobile-nav-list-item">
+            <button
+              className="mobile-nav-item"
+              onClick={() => {
+                dispatch(toggleMenuState());
+                navigate("/cinemas");
+              }}
+            >
+              Cinemas
+            </button>
+          </li>
+          <li className="mobile-nav-list-item">
+            <button
+              className="mobile-nav-item"
+              onClick={() => {
+                dispatch(toggleMenuState());
+                navigate("/contactUs");
+              }}
+            >
+              Contact Us
+            </button>
+          </li>
           {isAuthenticated && signedPerson.person_type === "Admin" && (
             <li className="mobile-nav-list-item">
               <button

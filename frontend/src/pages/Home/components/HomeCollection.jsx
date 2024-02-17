@@ -42,7 +42,7 @@ export const HomeCollection = () => {
         </h1>
       </div>
 
-      {loading && <HashLoader cssOverride={override} color="#eb3656" />}
+      {loading && <HashLoader cssOverride={override} color="#845BB3" />}
       <div className="home-collection-container">
         {!loading && latestMoviesCards}
       </div>

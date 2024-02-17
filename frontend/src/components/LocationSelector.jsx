@@ -71,6 +71,6 @@ export const LocationSelector = () => {
       </p>
     </div>
   ) : (
-    <HashLoader color="#eb3656" />
+    <HashLoader color="#845BB3" />
   );
 };

@@ -1,0 +1,90 @@
+/* CinemaCard.css */
+
+.cinema-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.cinema-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.cinema-details {
+    flex-grow: 1;
+}
+
+.cinema-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #6B46C1;
+    margin-bottom: 8px;
+}
+
+.contact-info,
+.location-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.location-link {
+    color: #4699c2;
+    text-decoration: none;
+}
+
+.map-container {
+    margin-bottom: 8px;
+}
+
+.visit-website-link {
+    background-color: #6B46C1;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.visit-website-link:hover {
+    background-color: #8246C1;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .cinema-card {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start;
+    }
+    
+    .cinema-image {
+        max-width: 100%; /* Ensure image takes full width on smaller screens */
+        margin-right: 0;
+        margin-bottom: 16px; /* Add space between image and details */
+    }
+    
+    .cinema-name {
+        font-size: 1.1rem; /* Decrease font size for smaller screens */
+    }
+    
+    .contact-info,
+    .location-info {
+        margin-bottom: 4px; /* Reduce margin between contact and location info */
+    }
+    
+    .visit-website-link {
+        padding: 6px 12px; /* Adjust padding for smaller screens */
+    }
+}

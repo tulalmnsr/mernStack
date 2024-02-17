@@ -55,7 +55,7 @@ export const AdminDashboardPrimary = () => {
       <div className="admin-dashboard-primary">
         <div className="dashboard-pri-card">
           {loading1 ? (
-            <HashLoader size={30} color="#eb3656" />
+            <HashLoader size={30} color="#485BB3" />
           ) : (
             <p className="admin-dashboard-val">
               {ticketData.length > 0 && ticketData[0].total_tickets}
@@ -110,7 +110,7 @@ export const AdminDashboardPrimary = () => {
 
         <div className="dashboard-pri-card">
           {loading2 ? (
-            <HashLoader size={30} color="#eb3656" />
+            <HashLoader size={30} color="#485BB3" />
           ) : (
             <p className="admin-dashboard-val">
               BDT{" "}
@@ -152,7 +152,7 @@ export const AdminDashboardPrimary = () => {
 
         <div className="dashboard-pri-card">
           {loading3 ? (
-            <HashLoader size={26} color="#eb3656" />
+            <HashLoader size={26} color="#485BB3" />
           ) : (
             <p className="admin-dashboard-val">
               {customerData.length > 0 && customerData[0].total_customers}

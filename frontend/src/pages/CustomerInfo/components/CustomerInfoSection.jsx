@@ -134,11 +134,19 @@ export const CustomerInfoSection = () => {
       <div className="container">
         <h3 className="customer-info-heading">Customer Info</h3>
         {loading1 ? (
-          <HashLoader cssOverride={override} color="#eb3656" />
+          <HashLoader cssOverride={override} color="#845BB3" />
         ) : (
           <div className="customer-info-details">
+            <div className="profile-image-container">
+              <img
+                className="profile-image"
+                src={cusProData.profile_image}
+                alt="profile"
+              />
+            </div>
+
             <div>
-              <p>Name</p>
+              <p>Username</p>
               <p>:</p>
               <p>
                 {cusProData &&
@@ -150,12 +158,6 @@ export const CustomerInfoSection = () => {
               <p>Email Address</p>
               <p>:</p>
               <p>{cusProData.email}</p>
-            </div>
-
-            <div>
-              <p>Phone No.</p>
-              <p>:</p>
-              <p>{cusProData.phone_number}</p>
             </div>
           </div>
         )}

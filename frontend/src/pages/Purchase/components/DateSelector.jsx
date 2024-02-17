@@ -36,7 +36,7 @@ export const DateSelector = () => {
 
   const checkedColor = (val) => {
     return {
-      backgroundColor: val === userDate ? "#ef5e78" : "",
+      backgroundColor: val === userDate ? "#485BB3" : "",
       color: val === userDate ? "#e6e6e8" : "",
     };
   };
@@ -100,7 +100,7 @@ export const DateSelector = () => {
         {!loading ? (
           <div className="form-item-options">{dateOptions}</div>
         ) : (
-          <HashLoader color="#eb3656" />
+          <HashLoader color="#845BB3" />
         )}
       </form>
     </div>

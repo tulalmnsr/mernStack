@@ -65,7 +65,7 @@ export const Footer = () => {
               d="M360 94.59V296M443.13 212.87L296 360M417.41 360H216M299.13 443.13l-144-144M152 416V216M68.87 299.13l144-144M94.59 152H288M212.87 68.87L360 216"
             />
           </svg>
-          <h1 className="footer-logo-text">Asho Dekhi</h1>
+          <h1 className="footer-logo-text">CITY MOVIE</h1>
         </HashLink>
       ) : (
         <Link className="footer-logo-container" to="/">
@@ -90,7 +90,7 @@ export const Footer = () => {
               d="M360 94.59V296M443.13 212.87L296 360M417.41 360H216M299.13 443.13l-144-144M152 416V216M68.87 299.13l144-144M94.59 152H288M212.87 68.87L360 216"
             />
           </svg>
-          <h1 className="footer-logo-text">Asho Dekhi</h1>
+          <h1 className="footer-logo-text">CITY MOVIE</h1>
         </Link>
       )}
 
@@ -125,11 +125,11 @@ export const Footer = () => {
       <h3 className="footer-heading">Our Theatres</h3>
 
       <p className="copyright">
-        Copyright &copy; 2023 by NELOY SAHA, Inc. All rights reserved.
+        Copyright &copy; 2024 by City Movie , Inc. All rights reserved.
       </p>
 
       <div className="footer-address-container">
-        {loading ? <HashLoader color="#eb3656" /> : locations}
+        {loading ? <HashLoader color="#845BB3" /> : locations}
       </div>
     </section>
   );

@@ -346,7 +346,7 @@ export const MovieInfoSection = () => {
       <h3 className="movie-info-screen-heading">Showtimes</h3>
 
       {loading2 ? (
-        <HashLoader cssOverride={override} size={60} color="#eb3656" />
+        <HashLoader cssOverride={override} size={60} color="#485BB3" />
       ) : (
         <div className="movie-info-screen-container">
           {showHtml3d.length > 0 && (

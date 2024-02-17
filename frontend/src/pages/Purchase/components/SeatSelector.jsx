@@ -72,7 +72,7 @@ export const SeatSelector = ({ seatsData, setSeatsData }) => {
         onTouchEnd={seatStatus !== "booked" ? handleTouchStart : undefined}
         key={seat.seat_id}
         style={{
-          backgroundColor: userSeatList.includes(seat.seat_id) ? "#ef5e78" : "",
+          backgroundColor: userSeatList.includes(seat.seat_id) ? "#b4a7d6" : "",
         }}
       >
         {seat.seat_name}

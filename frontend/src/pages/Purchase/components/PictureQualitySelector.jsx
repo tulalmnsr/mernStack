@@ -50,8 +50,8 @@ export const PictureQualitySelector = ({ hallData, setHallData }) => {
 
   const checkedColor = (val) => {
     return {
-      backgroundColor: val === userAns ? "#ef5e78" : "",
-      border: val === userAns ? "2px solid #ef5e78" : "",
+      backgroundColor: val === userAns ? "#485BB3" : "",
+      border: val === userAns ? "2px solid #485BB6" : "",
     };
   };
 
@@ -126,7 +126,7 @@ export const PictureQualitySelector = ({ hallData, setHallData }) => {
     <div>
       <form>
         <div className="form-item-heading">Select Quality</div>
-        {loading && <HashLoader cssOverride={override} color="#eb3656" />}
+        {loading && <HashLoader cssOverride={override} color="#485BB3" />}
         {!loading && (
           <div className="form-hall-container">{showtimeOptions}</div>
         )}

@@ -1,0 +1,120 @@
+/* ContactForm.css */
+/* Container for the form and image */
+.Content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Container for the image */
+.ImageContainer {
+  flex: 1;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+/* Image styles */
+.ImageContainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Container for the form */
+.FormContainer {
+  flex: 1;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+/* Form styles */
+#form {
+  width: 100%;
+}
+
+/* Input field styles */
+input[type="text"],
+textarea {
+  width: 100%;
+  max-width: 300px;
+  border: 0.5px solid #8b8f9c6b;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Button styles */
+#submit {
+  background-color: #4699c2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Adjustments for smaller screens */
+@media only screen and (max-width: 865px) {
+  .Content {
+    flex-direction: column;
+  }
+
+  /* Adjust the width of the image and form containers */
+  .ImageContainer,
+  .FormContainer {
+    width: 100%;
+  }
+}
+
+.Content h1 {
+  color: #4699c2;
+  font-size: 10vh;
+  font-weight: bold;
+}
+.IconsList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 30%;
+}
+.Icon {
+  color: #4699c2;
+  scale: 1.5;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 865px) {
+  .FormBody {
+    background-color: white;
+    height: 50%;
+  }
+  .Content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .Content h1 {
+    font-size: 5vh;
+  }
+  .Content h3 {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+  }
+  #form {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .IconsList {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+  }
+}

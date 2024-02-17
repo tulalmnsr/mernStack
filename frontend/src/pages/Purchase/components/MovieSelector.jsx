@@ -98,7 +98,7 @@ export const MovieSelector = ({ movieData, setMovieData }) => {
     <div>
       <form>
         <div className="form-item-heading">Select a movie</div>
-        {loading && <HashLoader cssOverride={override} color="#eb3656" />}
+        {loading && <HashLoader cssOverride={override} color="#845BB3" />}
         {!loading && <div className="form-movie-options">{movieOptions}</div>}
       </form>
     </div>

@@ -100,7 +100,7 @@ export const AdminShownInModifySection = ({ selectedDate }) => {
 
   const checkedColor = (val, checkVal) => {
     return {
-      backgroundColor: val === checkVal ? "#ef5e78" : "",
+      backgroundColor: val === checkVal ? "#485BB6" : "",
       border: val === checkVal ? "2px solid transparent" : "",
     };
   };

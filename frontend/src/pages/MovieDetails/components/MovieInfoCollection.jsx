@@ -47,7 +47,7 @@ export const MovieInfoCollection = () => {
         </h1>
       </div>
       {loading ? (
-        <HashLoader cssOverride={override} color="#eb3656" />
+        <HashLoader cssOverride={override} color="#485BB3" />
       ) : (
         <div className="details-collection-container">{latestMoviesCards}</div>
       )}

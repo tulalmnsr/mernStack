@@ -30,7 +30,7 @@ export const GenreSelector = () => {
 
   const checkedColor = (val) => {
     return {
-      backgroundColor: val === userGenre ? "#ef5e78" : "",
+      backgroundColor: val === userGenre ? "#b4a7d6" : "",
       border: val === userGenre ? "2px solid transparent" : "",
     };
   };
@@ -61,7 +61,7 @@ export const GenreSelector = () => {
   });
 
   return loading ? (
-    <HashLoader cssOverride={override} color="#eb3656" />
+    <HashLoader cssOverride={override} color="#485BB3" />
   ) : (
     <div className="genre-container">
       <div className="genre-icon-container">

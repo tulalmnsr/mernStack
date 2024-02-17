@@ -12,7 +12,7 @@ export const Navbar = () => {
   const location = useLocation();
 
   const selectionTab = {
-    backgroundColor: "#eb3656",
+    backgroundColor: "#845BB3",
   };
 
   const { isAuthenticated, signedPerson } = useSelector(
@@ -35,6 +35,10 @@ export const Navbar = () => {
     pageName = "showtimes";
   } else if (location.pathname === "/aboutus") {
     pageName = "aboutUs";
+  } else if (location.pathname === "/contactus") {
+    pageName = "contactUs";
+  } else if (location.pathname === "/cenimas") {
+    pageName = "cenimas";
   } else if (location.pathname === "/admin") {
     pageName = "admin";
   } else {
@@ -83,7 +87,7 @@ export const Navbar = () => {
               d="M360 94.59V296M443.13 212.87L296 360M417.41 360H216M299.13 443.13l-144-144M152 416V216M68.87 299.13l144-144M94.59 152H288M212.87 68.87L360 216"
             />
           </svg>
-          <h1 className="logo-text">Asho Dekhi</h1>
+          <h1 className="logo-text">CITY MOVIE</h1>
         </HashLink>
       ) : (
         <Link className="logo-container" to="/">
@@ -108,7 +112,7 @@ export const Navbar = () => {
               d="M360 94.59V296M443.13 212.87L296 360M417.41 360H216M299.13 443.13l-144-144M152 416V216M68.87 299.13l144-144M94.59 152H288M212.87 68.87L360 216"
             />
           </svg>
-          <h1 className="logo-text">Asho Dekhi</h1>
+          <h1 className="logo-text">CITY MOVIE</h1>
         </Link>
       )}
 
@@ -139,6 +143,24 @@ export const Navbar = () => {
               style={pageName === "aboutUs" ? selectionTab : {}}
             >
               About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-item"
+              to="/cinemas"
+              style={pageName === "cinemas" ? selectionTab : {}}
+            >
+              Cinemas
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="nav-item"
+              to="/contactUs"
+              style={pageName === "contactUs" ? selectionTab : {}}
+            >
+             Contact Us 
             </Link>
           </li>
           {isAuthenticated && signedPerson.person_type === "Admin" && (

@@ -1,0 +1,304 @@
+
+.bar {
+  height: 2px;
+  width: 16px;
+  background-color: #805ad5; /* Purple color */
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #805ad5; /* Purple color */
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 16px;
+  color: #ffffff; /* Dark gray color */
+  margin-bottom: 20px;
+}
+
+.about-section {
+  padding: 80px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+.history-text-container {
+  width: 50%;
+  padding: 0 20px;
+}
+
+.history-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.history-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.history-counters {
+  display: flex;
+  margin-top: 20px;
+}
+
+.history-counter {
+  margin-right: 20px;
+}
+
+.history-counter .about {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.history-counter .text {
+  font-size: 14px;
+}
+
+.history-image-container {
+  width: 50%;
+}
+
+.history-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .history-image-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* NewsletterForm.css */
+.newsletter-section {
+  background-color: #805ad5;
+  padding: 80px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 300px;
+}
+
+input,
+button {
+  padding: 10px;
+  border: none;
+}
+
+input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #fff;
+  color: #805ad5;
+  cursor: pointer;
+}
+/* Partners.css */
+.partners-section {
+  color: #cccdd0;
+  background-color:  #1a1d2c;
+  padding: 80px 0;
+}
+
+.partners-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #805ad5; /* Purple text color */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.partners-description {
+  font-size: 1.2rem;
+  color: #ffffff; /* Gray text color */
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.partners-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  max-width: 100px;
+  margin: 20px;
+}
+/* App.css */
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px; /* Add left padding */
+  padding-right: 20px; /* Add right padding */
+  color: #ffffff;
+
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.bg-gray-200 {
+  background-color:  #1a1d2c;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.md\:w-1\/2 {
+  width: 50%;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.md\:mb-0 {
+  margin-bottom: 0;
+}
+
+.order-last {
+  order: 2;
+}
+
+.order-first {
+  order: -1;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #6b46c1;
+}
+
+.text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
+.mr-16 {
+  margin-right: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.number-container {
+  flex-grow: 1;
+}
+
+.about {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #6b46c1;
+}
+
+/* New styles for smaller photo and border radius */
+img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Add border radius */
+}

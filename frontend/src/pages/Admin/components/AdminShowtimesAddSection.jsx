@@ -29,7 +29,7 @@ export const AdminShowtimesAddSection = ({
 
   const checkedColor = (val) => {
     return {
-      backgroundColor: val === selectedShowDate ? "#ef5e78" : "",
+      backgroundColor: val === selectedShowDate ? "#485BB6" : "",
       border: val === selectedShowDate ? "2px solid transparent" : "",
     };
   };
