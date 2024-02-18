@@ -9,15 +9,15 @@ import './ContactForm.css';
 export function SendEmail(e) {
   e.preventDefault();
 
-  emailjs.sendForm('service_g6dc96u', 'template_uizz26h', e.target, 'RE3pTEL2pqWmaER1F')
+  emailjs.sendForm('gmailService', 'template_vs69uga', e.target, 'A5EmjSGkV-RxUQVop')
     .then((result) => {
       console.log(result.text);
-      window.alert("Your Message was successfully sent to Refubook Team!")
+      window.alert("Your Message was successfully sent to CITY MOVIE Team!")
     }, (error) => {
       console.log(error.text);
     });
   e.target.reset()
-};
+}
 
 export function ContactForm() {
   return (
