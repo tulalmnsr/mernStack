@@ -879,106 +879,95 @@ header {
 .social-link:hover .social-link-icon {
   fill: #e6e6e8;
 }
-
 /* ************** */
-/* FOOTER SECTION */
+/*    FOOTER      */
 /* ************** */
-
-.section-footer {
-  margin-top: 9.6rem;
-  margin-bottom: 9.6rem;
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
-  column-gap: 4.8rem;
-  row-gap: 2.8rem;
-  justify-items: start;
+.footer {
+  background-color:  #1a1d2c;
+  color: #fff; /* Text color */
+  padding: 50px 0; /* Vertical padding */
+  font-family: Arial, sans-serif; /* Font family */
 }
 
-.footer-logo-container {
-  margin-top: auto;
-  grid-row: 2/3;
-  display: flex;
-  gap: 0.2rem;
-  align-items: center;
-  text-decoration: none;
+.footer-column {
+  display: inline-block; /* Use inline-block to allow columns to appear side by side */
+  vertical-align: top; /* Align columns to the top */
+  width: calc(33.33% - 20px); /* Set width for each column with some space in between */
+  margin-right: 20px; /* Adjust margin between columns */
+  padding: 0 10px; /* Add padding to each column */
 }
 
-.foot-reg {
-  grid-column: 2/3;
+.footer-column:last-child {
+  margin-right: 0; /* Remove margin from the last column */
 }
 
-.footer-logo-icon {
-  height: 3.8rem;
-  width: 3.8rem;
-  color: #845BB3;
-}
-
-.footer-logo-text {
-  font-size: 3.2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #e6e6e6;
-}
-
-.copyright {
-  font-size: 1.4rem;
-  letter-spacing: 0.75px;
-  line-height: 1.6;
-  color: #767780;
-  margin-top: auto;
-}
 
 .footer-heading {
-  margin-top: auto;
-  grid-column: 2/-1;
-  font-size: 2.4rem;
-  letter-spacing: 0.75px;
-  font-weight: 500;
-  color: #e6e6e6;
+  font-size: 18px; /* Footer heading font size */
+  margin-bottom: 20px; /* Bottom margin for footer heading */
+}
+
+.footer-description {
+  font-size: 14px; /* Footer description font size */
+  line-height: 1.5; /* Line height */
+}
+
+.footer-links {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove padding */
+}
+
+.footer-link {
+  color: #fff; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-size: 14px; /* Font size */
+  line-height: 2; /* Line height */
+}
+
+.footer-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.contact-info {
+  display: flex; /* Use flexbox for contact info */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Bottom margin for each contact info */
+  color: #fff;
+}
+
+.icon {
+  margin-right: 10px; /* Right margin for icon */
+  font-size: 18px; /* Icon size */
 }
 
 .footer-address-container {
-  grid-column: 2/-1;
-  display: flex;
-  gap: 4.8rem;
+  margin-top: 20px; /* Top margin for address container */
 }
 
 .address {
-  font-size: 1.7rem;
-  font-weight: 400;
-  letter-spacing: 0.75px;
-  line-height: 1.6;
-  color: #babbc0;
+  font-size: 14px; /* Address font size */
+  margin-bottom: 5px; /* Bottom margin for each address */
 }
 
-.footer-link-container {
-  display: flex;
-  align-items: flex-end;
+.hash-loader {
+  display: inline-block; /* Display loader inline */
+  margin-right: 10px; /* Right margin for loader */
 }
 
-.footer-btn {
-  background-color: transparent;
-  border: none;
-  font-family: "Inter";
+.copyright {
+  font-size: 12px; /* Copyright font size */
+  margin-top: 20px; /* Top margin for copyright */
+  text-align: center; /* Center align copyright */
+}
+/* Add this CSS to make icons and contact information white */
+.icon {
+  color: white;
 }
 
-.footer-link:link,
-.footer-link:visited,
-.footer-btn {
-  text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: 0.75px;
-  color: #cccdd0;
-  transition: all 0.3s;
-  letter-spacing: 0.25px;
+.contact-info p {
+  color: white;
 }
 
-.footer-link:hover,
-.footer-link:active,
-.footer-btn:hover {
-  color: #bd8df3;
-}
 
 /* ************** */
 /* SHOWTIMES PAGE */

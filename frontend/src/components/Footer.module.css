@@ -1,0 +1,85 @@
+.footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 50px 0; /* Vertical padding */
+    font-family: Arial, sans-serif; /* Font family */
+  }
+  
+  .footer-column {
+    display: inline-block; /* Use inline-block to allow columns to appear side by side */
+    vertical-align: top; /* Align columns to the top */
+    width: calc(33.33% - 20px); /* Set width for each column with some space in between */
+    margin-right: 20px; /* Adjust margin between columns */
+    padding: 0 10px; /* Add padding to each column */
+  }
+  
+  .footer-column:last-child {
+    margin-right: 0; /* Remove margin from the last column */
+  }
+  
+  
+  .footer-heading {
+    font-size: 18px; /* Footer heading font size */
+    margin-bottom: 20px; /* Bottom margin for footer heading */
+  }
+  
+  .footer-description {
+    font-size: 14px; /* Footer description font size */
+    line-height: 1.5; /* Line height */
+  }
+  
+  .footer-links {
+    list-style-type: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
+  }
+  
+  .footer-link {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    line-height: 2; /* Line height */
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .contact-info {
+    display: flex; /* Use flexbox for contact info */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Bottom margin for each contact info */
+  }
+  
+  .icon {
+    margin-right: 10px; /* Right margin for icon */
+    font-size: 18px; /* Icon size */
+  }
+  
+  .footer-address-container {
+    margin-top: 20px; /* Top margin for address container */
+  }
+  
+  .address {
+    font-size: 14px; /* Address font size */
+    margin-bottom: 5px; /* Bottom margin for each address */
+  }
+  
+  .hash-loader {
+    display: inline-block; /* Display loader inline */
+    margin-right: 10px; /* Right margin for loader */
+  }
+  
+  .copyright {
+    font-size: 12px; /* Copyright font size */
+    margin-top: 20px; /* Top margin for copyright */
+    text-align: center; /* Center align copyright */
+  }
+  /* Add this CSS to make icons and contact information white */
+.icon {
+    color: white;
+  }
+  
+  .contact-info p {
+    color: white;
+  }
+  
