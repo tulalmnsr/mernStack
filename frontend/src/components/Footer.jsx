@@ -121,8 +121,12 @@ export const Footer = () => {
           About us
         </Link>
       </div>
-
-      <h3 className="footer-heading">Our Theatres</h3>
+      <div className="footer-link-container">
+        <Link className="footer-link" to="/faq">
+          FAQs
+        </Link>
+      </div>
+    
 
       <p className="copyright">
         Copyright &copy; 2024 by City Movie , Inc. All rights reserved.

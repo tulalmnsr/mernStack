@@ -47,7 +47,7 @@ export const SignupModal = () => {
         formData.append("photo", signupDetails.photo);
 
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/registration`,
+          `${import.meta.env.VITE_API_URL}/register`,
           formData,
           {
             headers: {
@@ -56,14 +56,15 @@ export const SignupModal = () => {
           }
         );
 
-        if (response.status === 200) {
+        if (response.data.success) {
           dispatch(hideSignModal());
-          signupSuccessToast(response.data.message);
+          signupSuccessToast(response.data.message); // Show success toast
+        } else {
+          signupFailedToast(response.data.error); // Show error toast
         }
       } catch (err) {
-        console.log("Error during registration:", err.response.data.message);
-        dispatch(hideSignModal());
-        signupFailedToast(err.response.data.message);
+        console.log("Error during registration:", err.response.data.error);
+        signupFailedToast("Registration failed. Please try again."); // Show generic error toast
       } finally {
         setLoading(false);
         setSignupDetails({

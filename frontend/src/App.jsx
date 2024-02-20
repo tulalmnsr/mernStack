@@ -19,6 +19,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import Contact from "./pages/Contact/Contact";
 import Cinemas from "./pages/Cinemas/CinemasPage";
 import HomePage from "./pages/Home/HomePage";
+import FaqPage from "./pages/Faq/FaqPage";
 
 const PurchasePage = lazy(() => import("./pages/Purchase/PurchasePage"));
 const ShowtimesPage = lazy(() => import("./pages/Showtimes/ShowtimesPage"));
@@ -84,6 +85,7 @@ function App() {
 
             <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/contactus" element={<Contact />} />
+            <Route path="/faq" element={<FaqPage />} />
             <Route path="/cinemas" element={<Cinemas />} />
             <Route
               path="/movieDetails"

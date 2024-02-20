@@ -27,7 +27,7 @@ export const LoginModal = () => {
     setLoginDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
 
-  const getLoginData = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (loginDetails.email !== "" && loginDetails.password !== "") {
@@ -35,21 +35,23 @@ export const LoginModal = () => {
 
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/login`,
+          "/api/login",
           {
             email: loginDetails.email,
             password: loginDetails.password,
           }
         );
 
-        dispatch(login(response.data[0]));
-        dispatch(hideLoginModal());
-
-        loginSuccessToast();
-      } catch (err) {
-        dispatch(hideLoginModal());
-        loginFailedToast(err.response.data.message);
-        console.log("Couldn't log in");
+        if (response.data.success) {
+          dispatch(login(response.data.token));
+          dispatch(hideLoginModal());
+          loginSuccessToast();
+        } else {
+          loginFailedToast(response.data.error);
+        }
+      } catch (error) {
+        loginFailedToast("An error occurred during login.");
+        console.log("Login failed:", error);
       } finally {
         setLoading(false);
         setLoginDetails({
@@ -62,11 +64,7 @@ export const LoginModal = () => {
 
   return (
     <div className="login-form">
-      <form
-        onSubmit={(e) => {
-          getLoginData(e);
-        }}
-      >
+      <form onSubmit={handleLogin}>
         <div className="signup-form-heading">
           <h2 className="signup-form-heading-text">
             Log Into Your CITY MOVIE Account
@@ -103,7 +101,7 @@ export const LoginModal = () => {
               type="email"
               value={loginDetails.email}
               placeholder="Enter Email"
-              onChange={(e) => handleLoginDetails(e)}
+              onChange={handleLoginDetails}
               required
             />
           </div>
@@ -118,13 +116,13 @@ export const LoginModal = () => {
                 value={loginDetails.password}
                 type={passViewState ? "text" : "password"}
                 placeholder="Enter Password"
-                onChange={(e) => handleLoginDetails(e)}
+                onChange={handleLoginDetails}
                 required
               />
               <button
                 type="button"
                 className="pass-icon-btn"
-                onClick={(e) => togglePassState(e)}
+                onClick={togglePassState}
               >
                 {passViewState ? (
                   <svg
