@@ -19,13 +19,9 @@ export const CustomerInfoSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/customerProfile`,
-          {
-            email: signedPerson.email,
-          }
-        );
-        setCusProData(response.data[0]);
+        // Fetch user profile data
+        const profileResponse = await axios.get(`/users/${signedPerson.id}`);
+        setCusProData(profileResponse.data.user);
       } catch (err) {
         console.error(err);
       } finally {
@@ -33,26 +29,9 @@ export const CustomerInfoSection = () => {
       }
 
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/customerPurchases`,
-          {
-            email: signedPerson.email,
-          }
-        );
-        const formattedData = response.data.map((dataObj) => {
-          const purDate = new Date(dataObj.purchase_date).toLocaleDateString(
-            "en-GB"
-          );
-          const showDate = new Date(dataObj.showtime_date).toLocaleDateString(
-            "en-GB"
-          );
-          return {
-            ...dataObj,
-            showtime_date: showDate,
-            purchase_date: purDate,
-          };
-        });
-        setCusTicketData(formattedData);
+        // Fetch user purchase data
+        const purchasesResponse = await axios.get(`/users/${signedPerson.id}/purchases`);
+        setCusTicketData(purchasesResponse.data);
       } catch (err) {
         console.error(err);
       } finally {

@@ -1,38 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import HashLoader from "react-spinners/HashLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCart, setShowDate } from "../../../reducers/cartSlice";
 
 export const DateSelector = () => {
-  const [showDatesData, setShowDatesData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); 
   const { id: theatreId } = useSelector((store) => store.currentLocation);
   const { showtime_date: userDate } = useSelector((store) => store.cart);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/showtimesDates`,
-          {
-            theatreId,
-          }
-        );
-        setShowDatesData(response.data);
-        dispatch(resetCart());
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    theatreId !== "" && fetchData();
-  }, [theatreId, dispatch]);
+  const hardcodedDates = [
+    "2024-02-22", // Example date 1
+    "2024-02-23", // Example date 2
+    "2024-02-24", // Example date 3
+    // Add more dates as needed
+  ];
 
   const checkedColor = (val) => {
     return {
@@ -41,31 +25,35 @@ export const DateSelector = () => {
     };
   };
 
-  const dateOptions = showDatesData?.map((dateData, idx) => {
-    const day = new Date(dateData.showtime_date).toLocaleString("en-us", {
+  const handleBookDate = (selectedDate) => {
+    setLoading(true);
+    // You can replace the URL with your backend endpoint for booking
+    axios.post('/bookings', { selectedDate })
+      .then(response => {
+        // Handle success response
+        console.log('Booking successful:', response.data);
+      })
+      .catch(error => {
+        // Handle error
+        console.error('Error booking:', error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const dateOptions = hardcodedDates.map((formattedDate, idx) => {
+    const day = new Date(formattedDate).toLocaleString("en-us", {
       weekday: "short",
     });
 
-    const month = new Date(dateData.showtime_date).toLocaleString("en-us", {
+    const month = new Date(formattedDate).toLocaleString("en-us", {
       month: "short",
     });
 
-    const date = new Date(dateData.showtime_date).toLocaleString("en-us", {
+    const date = new Date(formattedDate).toLocaleString("en-us", {
       day: "numeric",
     });
-
-    const year = new Date(dateData.showtime_date).toLocaleString("en-us", {
-      year: "numeric",
-    });
-
-    const monthNumber = new Date(dateData.showtime_date).toLocaleString(
-      "en-us",
-      {
-        month: "numeric",
-      }
-    );
-
-    const formattedDate = `${year}-${monthNumber}-${date}`;
 
     return (
       <div
@@ -97,12 +85,10 @@ export const DateSelector = () => {
     <div>
       <form>
         <div className="form-item-heading">Select Date</div>
-        {!loading ? (
-          <div className="form-item-options">{dateOptions}</div>
-        ) : (
-          <HashLoader color="#845BB3" />
-        )}
+        <div className="form-item-options">{dateOptions}</div>
+        <button onClick={() => handleBookDate(userDate)}>Book Selected Date</button>
       </form>
+      {loading && <HashLoader color="#845BB3" />}
     </div>
   );
 };

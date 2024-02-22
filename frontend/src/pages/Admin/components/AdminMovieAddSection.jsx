@@ -1,19 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
-import { adminErrorToast, adminMovieToast } from "../../../toasts/toast";
 
 export const AdminMovieAddSection = () => {
   const [movieInfo, setMovieInfo] = useState({
-    movieName: "",
-    imagePath: "",
-    language: "",
-    description: "",
-    rating: "",
-    duration: "",
-    cast: "",
-    relDate: "",
-    genres: "",
-    directors: "",
+    title: "",
+    overview: "",
+    releaseDate: "",
+    genre: "",
+    trailerUrl: "",
+    showtimes: "",
   });
   const [adminMovieDropDown, setAdminMovieDropDown] = useState(false);
 
@@ -24,14 +19,14 @@ export const AdminMovieAddSection = () => {
   const handleMovieInfo = (e) => {
     const name = e.target.name;
     const value =
-      name === "genres" || name === "directors"
+      name === "genre"
         ? e.target.value.split(",")
         : e.target.value;
 
     setMovieInfo((prevInfo) => {
       return {
         ...prevInfo,
-        [name]: name === "rating" ? parseFloat(value) : value,
+        [name]: value,
       };
     });
   };
@@ -40,76 +35,41 @@ export const AdminMovieAddSection = () => {
     e.preventDefault();
 
     if (
-      movieInfo.movieName !== "" &&
-      movieInfo.imagePath !== "" &&
-      movieInfo.language !== "" &&
-      movieInfo.description !== "" &&
-      movieInfo.rating !== "" &&
-      movieInfo.duration !== "" &&
-      movieInfo.cast !== "" &&
-      movieInfo.relDate !== "" &&
-      movieInfo.genres !== "" &&
-      movieInfo.directors !== ""
+      movieInfo.title !== "" &&
+      movieInfo.overview !== "" &&
+      movieInfo.releaseDate !== "" &&
+      movieInfo.genre !== "" &&
+      movieInfo.trailerUrl !== "" &&
+      movieInfo.showtimes !== ""
     ) {
       try {
-        // Add the movie
+        const movieData = {
+          ...movieInfo,
+          genre: movieInfo.genre.split(",").map((genre) => genre.trim()),
+        };
+
         const movieResponse = await axios.post(
-          `${import.meta.env.VITE_API_URL}/adminMovieAdd`,
-          {
-            name: movieInfo.movieName,
-            image_path: movieInfo.imagePath,
-            language: movieInfo.language,
-            synopsis: movieInfo.description,
-            rating: movieInfo.rating,
-            duration: movieInfo.duration,
-            top_cast: movieInfo.cast,
-            release_date: movieInfo.relDate,
-          }
+          `${import.meta.env.VITE_API_URL}/admin/movies`,
+          movieData
         );
 
-        const movieId = movieResponse.data && movieResponse.data[0].last_id;
-
-        if (movieId) {
-          // Add genres
-          for (const genre of movieInfo.genres) {
-            await axios.post(`${import.meta.env.VITE_API_URL}/genreInsert`, {
-              movieId,
-              genre,
-            });
-          }
-
-          // Add directors
-          for (let idx = 0; idx < movieInfo.directors.length; idx++) {
-            const director = movieInfo.directors[idx];
-            await axios.post(`${import.meta.env.VITE_API_URL}/directorInsert`, {
-              movieId,
-              director,
-            });
-
-            // Check if it's the last director
-            if (idx === movieInfo.directors.length - 1) {
-              adminMovieToast();
-              setMovieInfo({
-                movieName: "",
-                imagePath: "",
-                language: "",
-                description: "",
-                rating: "",
-                duration: "",
-                cast: "",
-                relDate: "",
-                genres: "",
-                directors: "",
-              });
-            }
-          }
-
-          toggleAdminSection();
+        if (movieResponse.status === 200) {
+          alert("Movie added successfully");
+          setMovieInfo({
+            title: "",
+            overview: "",
+            releaseDate: "",
+            genre: "",
+            trailerUrl: "",
+            showtimes: "",
+          });
         }
       } catch (err) {
         console.error(err);
-        adminErrorToast();
+        alert("Failed to add movie");
       }
+    } else {
+      alert("Please fill in all fields");
     }
   };
 
@@ -160,78 +120,29 @@ export const AdminMovieAddSection = () => {
           }}
         >
           <div>
-            <p>Movie Name:</p>
+            <p>Title:</p>
             <input
-              name="movieName"
+              name="title"
               onChange={(e) => handleMovieInfo(e)}
               type="text"
-              placeholder="Enter Movie Name"
+              placeholder="Enter Movie Title"
             />
           </div>
 
           <div>
-            <p>Movie Photo Path:</p>
+            <p>Overview:</p>
             <input
-              name="imagePath"
+              name="overview"
               onChange={(e) => handleMovieInfo(e)}
               type="text"
-              placeholder="Enter Image path"
-            />
-          </div>
-
-          <div>
-            <p>Language:</p>
-            <input
-              name="language"
-              onChange={(e) => handleMovieInfo(e)}
-              type="text"
-              placeholder="Enter Movie Language"
-            />
-          </div>
-
-          <div>
-            <p>Synopsis:</p>
-            <input
-              name="description"
-              onChange={(e) => handleMovieInfo(e)}
-              placeholder="Enter Movie's Brief Description"
-            />
-          </div>
-
-          <div>
-            <p>Rating:</p>
-            <input
-              name="rating"
-              onChange={(e) => handleMovieInfo(e)}
-              type="text"
-              placeholder="Enter Movie Rating"
-            />
-          </div>
-
-          <div>
-            <p>Duration:</p>
-            <input
-              name="duration"
-              onChange={(e) => handleMovieInfo(e)}
-              type="text"
-              placeholder="Enter Movie Duration"
-            />
-          </div>
-
-          <div>
-            <p>Top Cast:</p>
-            <input
-              name="cast"
-              onChange={(e) => handleMovieInfo(e)}
-              type="text"
-              placeholder="Enter Movie's Main Actor/Actress Name"
+              placeholder="Enter Movie Overview"
             />
           </div>
 
           <div>
             <p>Release Date:</p>
             <input
-              name="relDate"
+              name="releaseDate"
               onChange={(e) => handleMovieInfo(e)}
               type="text"
               placeholder="(yyyy-mm-dd) format"
@@ -239,22 +150,32 @@ export const AdminMovieAddSection = () => {
           </div>
 
           <div>
-            <p>Movie Genres:</p>
+            <p>Genre:</p>
             <input
-              name="genres"
+              name="genre"
               onChange={(e) => handleMovieInfo(e)}
               type="text"
-              placeholder="Enter separate Genres with comma"
+              placeholder="Enter Genres separated by comma"
             />
           </div>
 
           <div>
-            <p>Movie Directors:</p>
+            <p>Trailer URL:</p>
             <input
-              name="directors"
+              name="trailerUrl"
               onChange={(e) => handleMovieInfo(e)}
               type="text"
-              placeholder="Enter separate Directors with comma"
+              placeholder="Enter Trailer URL"
+            />
+          </div>
+
+          <div>
+            <p>Showtimes:</p>
+            <input
+              name="showtimes"
+              onChange={(e) => handleMovieInfo(e)}
+              type="text"
+              placeholder="Enter Showtimes"
             />
           </div>
 

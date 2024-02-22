@@ -20,16 +20,12 @@ export const MovieSelector = ({ movieData, setMovieData }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (userDate === "") return;
+      if (userDate === "" || userMovieId === "") return;
 
       setLoading(true);
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/uniqueMovies`,
-          {
-            theatreId,
-            userDate,
-          }
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/movies/${userMovieId}`
         );
 
         setMovieData(response.data);
@@ -41,7 +37,11 @@ export const MovieSelector = ({ movieData, setMovieData }) => {
     };
 
     fetchData();
-  }, [userDate, theatreId, setMovieData]);
+  }, [userDate, userMovieId, setMovieData]);
+
+  const handleMovieChange = (e) => {
+    dispatch(setMovie(e.target.value));
+  };
 
   const movieOptions = movieData.map((movie, idx) => {
     return (
@@ -51,7 +51,7 @@ export const MovieSelector = ({ movieData, setMovieData }) => {
           id={idx}
           name="Select Movie"
           value={movie.id}
-          onChange={(e) => dispatch(setMovie(e.target.value))}
+          onChange={handleMovieChange}
           checked={movie.id === userMovieId}
         />
 

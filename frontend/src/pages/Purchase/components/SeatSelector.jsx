@@ -4,34 +4,23 @@ import HashLoader from "react-spinners/HashLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { setSeat } from "../../../reducers/cartSlice";
 
-export const SeatSelector = ({ seatsData, setSeatsData }) => {
+export const SeatSelector = ({ setSeatsData }) => {
   const override = {
     display: "block",
     margin: "1.6rem auto",
   };
 
   const [loading, setLoading] = useState(false);
-
-  const {
-    movie_id: userMovieId,
-    hall_id: userHallId,
-    showtime_id: userShowtimeId,
-    seat_id_list: userSeatList,
-  } = useSelector((store) => store.cart);
-
+  const { movie_id: userMovieId, showtime_id: userShowtimeId, seat_id_list: userSeatList } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchBookedSeats = async () => {
       setLoading(true);
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/seats`,
-          {
-            userShowtimeId,
-            userHallId,
-            userMovieId,
-          }
+          `${import.meta.env.VITE_API_URL}/bookings/seats`, // Adjust the route according to your backend API
+          { userShowtimeId, userMovieId }
         );
         setSeatsData(response.data);
       } catch (err) {
@@ -41,67 +30,12 @@ export const SeatSelector = ({ seatsData, setSeatsData }) => {
       }
     };
 
-    fetchData();
-  }, [userHallId, userShowtimeId, userMovieId, setSeatsData]);
+    fetchBookedSeats();
+  }, [userShowtimeId, userMovieId, setSeatsData]);
 
-  let rows = [];
-  let rowSeat = [];
-
-  // seatsData.forEach((seat) => {
-  //   return seat.selected && userSeat.push(seat.seat_id);
-  // });
-
-  seatsData.forEach((seat, idx) => {
-    let seatStatus;
-
-    const handleTouchStart = (e) => {
-      e.preventDefault();
-      dispatch(setSeat(seat.seat_id));
-    };
-
-    seat.booked_status === 0
-      ? (seatStatus = "booked")
-      : (seatStatus = "available");
-
-    const seatHtml = (
-      <div
-        className={`seat ${seatStatus}`}
-        onClick={() =>
-          seatStatus !== "booked" && dispatch(setSeat(seat.seat_id))
-        }
-        onTouchEnd={seatStatus !== "booked" ? handleTouchStart : undefined}
-        key={seat.seat_id}
-        style={{
-          backgroundColor: userSeatList.includes(seat.seat_id) ? "#b4a7d6" : "",
-        }}
-      >
-        {seat.seat_name}
-      </div>
-    );
-
-    if (idx === 0) {
-      rowSeat.push(seatHtml);
-    } else if (
-      seatsData[idx].seat_name[0] !== seatsData[idx - 1].seat_name[0]
-    ) {
-      rows.push(
-        <div className="row" key={seatsData[idx - 1].seat_name[0]}>
-          {rowSeat}
-        </div>
-      );
-      rowSeat = [];
-      rowSeat.push(seatHtml);
-    } else if (idx === seatsData.length - 1) {
-      rowSeat.push(seatHtml);
-      rows.push(
-        <div className="row" key={seatsData[idx - 1].seat_name[0]}>
-          {rowSeat}
-        </div>
-      );
-    } else {
-      rowSeat.push(seatHtml);
-    }
-  });
+  const handleSeatClick = (seatId) => {
+    dispatch(setSeat(seatId));
+  };
 
   return (
     <div>
@@ -122,7 +56,17 @@ export const SeatSelector = ({ seatsData, setSeatsData }) => {
             <div className="screen-2"></div>
           </div>
           <div className="theatre-screen-heading">Theatre Screen</div>
-          <div className="seat-container">{rows}</div>
+          <div className="seat-container">
+            {seatsData.map((seat) => (
+              <div
+                className={`seat ${seat.booked_status === "booked" ? "booked" : "available"}`}
+                onClick={() => seat.booked_status !== "booked" && handleSeatClick(seat._id)}
+                key={seat._id}
+              >
+                {seat.seat_name}
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>
