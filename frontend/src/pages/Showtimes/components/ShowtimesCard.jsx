@@ -24,7 +24,7 @@ export const ShowtimesCard = (props) => {
               onClick={() => {
                 dispatch(resetCart());
                 isAuthenticated && signedPerson.person_type === "Customer"
-                  ? navigate("/purchase")
+                  ? navigate("/bookings")
                   : dispatch(showLoginModal());
               }}
             >
@@ -62,7 +62,7 @@ export const ShowtimesCard = (props) => {
               onClick={() => {
                 dispatch(resetCart());
                 isAuthenticated && signedPerson.person_type === "Customer"
-                  ? navigate("/purchase")
+                  ? navigate("/bookings")
                   : dispatch(showLoginModal());
               }}
             >
@@ -103,7 +103,7 @@ export const ShowtimesCard = (props) => {
         <h2 className="showtimes-title">{props.movie_name}</h2>
         <button
           className="showtimes-details-btn"
-          onClick={() => navigate(`/movieDetails/${props.id}`)}
+          onClick={() => navigate(`/movies/${props.id}`)}
         >
           See details
         </button>

@@ -24,7 +24,7 @@ export const CollectionCard = ({
   return (
     <div
       className="home-movie-card"
-      onClick={() => navigate(`/movieDetails/${id}`)}
+      onClick={() => navigate(`/movies/${id}`)}
     >
       <div className="home-movie-img-box">
         <img
@@ -129,7 +129,7 @@ export const CollectionCard = ({
           e.stopPropagation();
           dispatch(resetCart());
           isAuthenticated && signedPerson.person_type === "Customer"
-            ? navigate("/purchase")
+            ? navigate("/bookings")
             : dispatch(showLoginModal());
         }}
       >

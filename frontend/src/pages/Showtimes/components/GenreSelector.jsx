@@ -17,7 +17,7 @@ export const GenreSelector = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/genres`
+          `${import.meta.env.VITE_API_URL}/api/movies`
         );
         setGenreData([{ genre: "All" }, ...response.data]);
         setLoading(false);
