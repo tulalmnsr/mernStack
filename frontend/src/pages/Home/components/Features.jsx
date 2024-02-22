@@ -15,7 +15,7 @@ export const Features = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/locationFeatures`
+          `${import.meta.env.VITE_API_URL}/cinemas`
         );
         setFeaturesData(response.data);
       } catch (err) {

@@ -1,56 +1,58 @@
 import { useEffect, useState } from "react";
-import { CollectionCard } from "../../../components/CollectionCard";
 import axios from "axios";
+import { CollectionCard } from "../../../components/CollectionCard";
 import HashLoader from "react-spinners/HashLoader";
 import { useParams } from "react-router-dom";
 
-export const MovieInfoCollection = () => {
+const MovieInfoCollection = () => {
   const { id } = useParams();
-  const [movieData, setMovieData] = useState([]);
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const override = {
     display: "block",
     margin: "4.8rem auto",
   };
-  const movieDetailsId = Number(id);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchRecommendations = async () => {
       setLoading(true);
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/otherMovies`,
-          {
-            movieDetailsId,
-          }
-        );
-        setMovieData(response.data);
-      } catch (err) {
-        console.error(err);
+        const response = await axios.get(`/recommendations/${id}`);
+        setRecommendedMovies(response.data.data);
+      } catch (error) {
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
-  }, [movieDetailsId]);
+    fetchRecommendations();
+  }, [id]);
 
-  const latestMoviesCards = movieData.map((latestMovie, idx) => {
-    return idx < 6 && <CollectionCard key={latestMovie.id} {...latestMovie} />;
-  });
+  const recommendationCards = recommendedMovies.map((movie) => (
+    <CollectionCard key={movie.id} {...movie} />
+  ));
 
   return (
     <section className="section-movie-info-collection">
       <div className="home-collection-heading-container">
         <h1 className="heading-secondary heading-collection">
-          Find other movies &rarr;
+          Recommended Movies
         </h1>
       </div>
       {loading ? (
         <HashLoader cssOverride={override} color="#485BB3" />
       ) : (
-        <div className="details-collection-container">{latestMoviesCards}</div>
+        <div className="details-collection-container">
+          {recommendationCards.length > 0 ? (
+            recommendationCards
+          ) : (
+            <p>No recommended movies found.</p>
+          )}
+        </div>
       )}
     </section>
   );
 };
+
+export default MovieInfoCollection;

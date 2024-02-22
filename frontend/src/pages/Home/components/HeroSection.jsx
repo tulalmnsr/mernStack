@@ -49,7 +49,7 @@ export const HeroSection = () => {
               onClick={() => {
                 dispatch(resetCart());
                 isAuthenticated && signedPerson.person_type === 'Customer'
-                  ? navigate('/purchase')
+                  ? navigate('/bookings')
                   : dispatch(showLoginModal());
               }}
               className="btn btn-full"
