@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import BarLoader from "react-spinners/BarLoader";
 import { signupFailedToast, signupSuccessToast } from "../toasts/toast";
@@ -30,7 +30,7 @@ export const SignupModal = () => {
 
   const handleDataInsert = async (e) => {
     e.preventDefault();
-
+  
     if (
       signupDetails.username !== "" &&
       signupDetails.email !== "" &&
@@ -39,13 +39,13 @@ export const SignupModal = () => {
     ) {
       try {
         setLoading(true);
-
+  
         const formData = new FormData();
         formData.append("username", signupDetails.username);
         formData.append("email", signupDetails.email);
         formData.append("password", signupDetails.password);
         formData.append("photo", signupDetails.photo);
-
+  
         const response = await axios.post(
           `${import.meta.env.VITE_API_URL}/register`,
           formData,
@@ -55,15 +55,17 @@ export const SignupModal = () => {
             },
           }
         );
-
-        if (response.data.success) {
+  
+        if (response && response.data && response.data.success) {
           dispatch(hideSignModal());
           signupSuccessToast(response.data.message); // Show success toast
-        } else {
+        } else if (response && response.data && response.data.error) {
           signupFailedToast(response.data.error); // Show error toast
+        } else {
+          signupFailedToast("Unknown error occurred."); // Show generic error toast
         }
       } catch (err) {
-        console.log("Error during registration:", err.response.data.error);
+        console.log("Error during registration:", err.response?.data?.error || err.message);
         signupFailedToast("Registration failed. Please try again."); // Show generic error toast
       } finally {
         setLoading(false);
@@ -76,6 +78,14 @@ export const SignupModal = () => {
       }
     }
   };
+
+  useEffect(() => {
+    return () => {
+      // Cleanup function
+      // Perform any cleanup here, such as cancelling network requests
+      // or clearing timers
+    };
+  }, []);
 
   return (
     <div className="signup-form">
