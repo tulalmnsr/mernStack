@@ -15,7 +15,7 @@ export const ShowTimesCollection = () => {
   const [showtimesData, setShowtimesData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { name: theatreName } = useSelector((store) => store.currentLocation);
+  const { name: cinemaName } = useSelector((store) => store.currentLocation);
   const [searchParams] = useSearchParams();
   const userGenre = searchParams.get("genre") || "All";
 
@@ -24,9 +24,9 @@ export const ShowTimesCollection = () => {
       try {
         setLoading(true);
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/latestMovies`,
+          `${import.meta.env.VITE_API_URL}/showtimes`,
           {
-            theatreName,
+            cinemaName,
             userGenre,
           }
         );
@@ -39,8 +39,8 @@ export const ShowTimesCollection = () => {
       }
     };
 
-    theatreName !== "" && userGenre && fetchData();
-  }, [theatreName, userGenre]);
+    cinemaName !== "" && userGenre && fetchData();
+  }, [cinemaName, userGenre]);
 
   const movieShowtimes = [];
 
@@ -112,3 +112,4 @@ export const ShowTimesCollection = () => {
     </section>
   );
 };
+

@@ -9,14 +9,7 @@ export const AdminShowtimesAddSection = ({
 }) => {
   const [lastShowDate, setLastShowDate] = useState("");
   const [adminShowtimeDropdown, setAdminShowtimeDropdown] = useState(false);
-  const [bookingData, setBookingData] = useState({
-    userId: "",
-    movieId: "",
-    showtime: "",
-    seats: [],
-    status: "",
-    payment: "",
-  });
+  let showDateHtml = [];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,43 +27,97 @@ export const AdminShowtimesAddSection = ({
     fetchData();
   }, []);
 
+  const checkedColor = (val) => {
+    return {
+      backgroundColor: val === selectedShowDate ? "#485BB6" : "",
+      border: val === selectedShowDate ? "2px solid transparent" : "",
+    };
+  };
+
   const toggleAdminShowtimesSection = () => {
     setAdminShowtimeDropdown((prevState) => !prevState);
   };
 
-  const addBooking = async (e) => {
+  const addDays = (dateStr, days) => {
+    let dateData = new Date(dateStr);
+    dateData.setDate(dateData.getDate() + days);
+
+    const day = new Date(dateData).toLocaleString("en-us", {
+      day: "numeric",
+    });
+    const year = new Date(dateData).toLocaleString("en-us", {
+      year: "numeric",
+    });
+    const monthNumber = new Date(dateData).toLocaleString("en-us", {
+      month: "numeric",
+    });
+    const formattedDate = `${year}-${monthNumber}-${day}`;
+
+    return formattedDate;
+  };
+
+  for (let i = 0; i < 4; i++) {
+    let curDateStr = addDays(lastShowDate, i + 1);
+
+    const formattedDate = new Date(curDateStr).toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    showDateHtml.push(
+      <div
+        className="admin-radio-input-container"
+        key={i + 1}
+        style={checkedColor(curDateStr)}
+      >
+        <input
+          type="radio"
+          id={i + 1}
+          name="Select Showdate"
+          value={curDateStr}
+          onChange={(e) => handleSelectedDate(e)}
+          checked={curDateStr === selectedShowDate}
+        />
+
+        <label className="form-admin-input-detail" htmlFor={curDateStr}>
+          {formattedDate}
+        </label>
+      </div>
+    );
+  }
+
+  const showtimeAdd = async (e) => {
     e.preventDefault();
+    let showtimeId;
+
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/bookings`, bookingData);
+      const response1 = await axios.post(
+        `${import.meta.env.VITE_API_URL}/showdateAdd`,
+        {
+          selectedShowDate,
+        }
+      );
+
+      showtimeId = response1.data && response1.data[0].last_id;
+
+      await axios.post(`${import.meta.env.VITE_API_URL}/shownInUpdate`, {
+        showtimeId,
+      });
+
       adminShowtimeToast();
     } catch (err) {
       console.error(err);
       adminErrorToast();
     } finally {
       setSelectedShowDate("");
-      setBookingData({
-        userId: "",
-        movieId: "",
-        showtime: "",
-        seats: [],
-        status: "",
-        payment: "",
-      });
     }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setBookingData({
-      ...bookingData,
-      [name]: value,
-    });
   };
 
   return (
     <section className="section-admin-showtimes container">
       <div className="form-heading-container">
-        <h2 className="form-admin-heading">Add Booking</h2>
+        <h2 className="form-admin-heading">Add Showtime Date</h2>
         <button
           className="btn-admin-arrow"
           onClick={toggleAdminShowtimesSection}
@@ -110,71 +157,12 @@ export const AdminShowtimesAddSection = ({
       </div>
       {adminShowtimeDropdown && (
         <form className="form-admin-showtime-add">
-          <div className="form-group">
-            <label htmlFor="userId">User ID:</label>
-            <input
-              type="text"
-              id="userId"
-              name="userId"
-              value={bookingData.userId}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="movieId">Movie ID:</label>
-            <input
-              type="text"
-              id="movieId"
-              name="movieId"
-              value={bookingData.movieId}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="showtime">Showtime:</label>
-            <input
-              type="text"
-              id="showtime"
-              name="showtime"
-              value={bookingData.showtime}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="seats">Seats:</label>
-            <input
-              type="text"
-              id="seats"
-              name="seats"
-              value={bookingData.seats}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="status">Status:</label>
-            <input
-              type="text"
-              id="status"
-              name="status"
-              value={bookingData.status}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="payment">Payment:</label>
-            <input
-              type="text"
-              id="payment"
-              name="payment"
-              value={bookingData.payment}
-              onChange={handleInputChange}
-            />
-          </div>
+          <div className="form-admin-radio-options">{showDateHtml}</div>
           <button
             className="btn-admin"
             type="submit"
             onClick={(e) => {
-              addBooking(e);
+              showtimeAdd(e);
             }}
           >
             CONFIRM
