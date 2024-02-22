@@ -1,6 +1,4 @@
-// controllers/showtimeController.js
-
-const Showtime = require('../models/Showtime');
+const Showtime = require('../models/showtimeModel');
 
 const showtimeController = {
   // Create a new showtime
@@ -48,47 +46,58 @@ const showtimeController = {
       console.error(error);
       res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
-  }
-};
-exports.getLatestShowDates = async (req, res) => {
-  try {
-    const latestShowDates = await Showtime.distinct('showtime_date');
-    res.json(latestShowDates);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-};
+  },
 
-exports.getShowtimesByDate = async (req, res) => {
-  const { selectedShowDate } = req.body;
-  try {
-    const showtimes = await Showtime.find({ showtime_date: selectedShowDate });
-    res.json(showtimes);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-};
-exports.getReplacementMovies = async (req, res) => {
-  const { selectedShowtime } = req.body;
-  try {
-    const replacementMovies = await ReplacementMovie.find({ showtimeId: selectedShowtime });
-    res.json(replacementMovies);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-};
-exports.swapMovies = async (req, res) => {
-  const { selectedAlt, selectedShowtime, selectedReplace } = req.body;
-  try {
-    // Find the showtime with the selected ID and update the movieId field
-    await Showtime.updateOne({ _id: selectedShowtime }, { movieId: selectedAlt });
-    res.status(200).json({ message: 'Movie swap successful' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+  // Fetch showtimes by cinema
+  getShowtimesByCinema: async (req, res) => {
+    const { cinemaName, userGenre } = req.body;
+
+    try {
+      const showtimes = await Showtime.find({
+        cinema_name: cinemaName,
+        genre: userGenre !== 'All' ? userGenre : { $exists: true }
+      });
+
+      res.json(showtimes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+  },
+
+  // Fetch latest show dates
+  getLatestShowDates: async (req, res) => {
+    try {
+      const latestShowDates = await Showtime.distinct('showtime_date');
+      res.json(latestShowDates);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  },
+
+  // Fetch showtimes for a selected date
+  getShowtimesByDate: async (req, res) => {
+    const { selectedShowDate } = req.body;
+    try {
+      const showtimes = await Showtime.find({ showtime_date: selectedShowDate });
+      res.json(showtimes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  },
+
+  // Fetch replacement movie options
+  getReplacementMovies: async (req, res) => {
+    // This function is removed since ReplacementMovie model is not imported
+    res.status(404).json({ message: 'Not found' });
+  },
+
+  // Swap movies
+  swapMovies: async (req, res) => {
+    // This function is removed since ReplacementMovie model is not imported
+    res.status(404).json({ message: 'Not found' });
   }
 };
 

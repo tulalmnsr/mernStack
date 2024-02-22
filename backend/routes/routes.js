@@ -1,7 +1,10 @@
+// Import necessary modules
 const express = require('express');
 const router = express.Router();
 const authenticate = require('../middleware/authenticate'); 
+const Booking = require('../models/bookingmodel');
 
+// Import controllers
 const homeController = require('../controllers/homeController');
 const movieController = require('../controllers/movieController');
 const bookingController = require('../controllers/bookingController');
@@ -19,44 +22,38 @@ const userManagementController = require('../controllers/userManagementControlle
 const ticketController = require('../controllers/ticketController');
 const recommendationController = require('../controllers/recommendationController')
 const showtimesController = require('../controllers/showtimesController');
-const Booking = require('../models/bookingmodel');
-
-
-// Home Page
-router.get('/', homeController.displayMovies);
 
 // Movie Detail Page
 router.get('/movies/:id', movieController.getMovieDetails);
 router.get('/latestMovies', movieController.getAllMovies);
 
 // Route for fetching showtimes by cinema
-router.post('/showtimes', showtimesController.getShowtimesByCinema);
-// Create a new showtime
-router.post('/', showtimesController.createShowtime);
+router.post('/showtimes/cinema', showtimesController.getShowtimesByCinema); 
 
 // Retrieve all showtimes
-router.get('/', showtimesController.getAllShowtimes);
+router.get('/', showtimesController.getAllShowtimes);  
 
 // Update a showtime by ID
-router.put('/:id', showtimesController.updateShowtime);
+router.put('/:id', showtimesController.updateShowtime);  
 
 // Delete a showtime by ID
-router.delete('/:id', showtimesController.deleteShowtime);
+router.delete('/:id', showtimesController.deleteShowtime);  
 
 // Display About Page
 router.get('/about', aboutController.getAboutInfo);
 
 // Fetch latest show dates
-router.get('/latestShowDates', showtimesController.getLatestShowDates);
+router.get('/latestShowDates', showtimesController.getLatestShowDates);  
 
 // Fetch showtimes for a selected date
-router.post('/showtimes', showtimesController.getShowtimesByDate);
+router.post('/showtimes', showtimesController.getShowtimesByDate);  
 
 // Fetch replacement movie options
-router.post('/movieReplaceFrom', showtimesController.getReplacementMovies);
+router.post('/movieReplaceFrom', showtimesController.getReplacementMovies);  
 
 // Swap movies
-router.post('/movieSwap', showtimesController.swapMovies);
+router.post('/movieSwap', showtimesController.swapMovies);  
+
 // Booking Page
 router.post('/bookings', bookingController.addBooking);
 
@@ -70,12 +67,9 @@ router.post('/users/:id/upload-photo', authenticate, userController.updateProfil
 router.post('/user/register', userController.register);
 router.get('/totalCustomers', userController.getTotalCustomers);
 
-
-
 // Payment Page
 router.post('/payments', authenticate, paymentController.makePayment);
 router.get('/totalPayment', paymentController.getTotalPayment);
-
 
 // Cinemas Page
 router.get('/cinemas', cinemaController.getAllCinemas);
@@ -88,9 +82,11 @@ router.get('/admin/panel', authenticate, async (req, res) => {
   const result = await adminPanelController.getNewUsers();
   return res.status(result.success ? 200 : 500).json(result);
 });
+
 router.post('/recommendations', authenticate, recommendationController.addRecommendation);
 router.get('/recommendations/:userId', authenticate, recommendationController.getUserRecommendations);
 router.put('/recommendations', authenticate, recommendationController.updateRecommendations);
+
 // Admin Panel - New Users
 router.get('/admin/panel/new-users', authenticate, async (req, res) => {
   const result = await adminPanelController.getNewUsers();
@@ -134,14 +130,12 @@ router.get('/tickets', authenticate, TicketsController.listTickets);
 router.get('/totalTicketPerMovie', TicketsController.getTicketsPerMovie);
 router.get('/totalTickets', TicketsController.getTotalTickets);
 
-
+// Handle booking seats
 router.post('/bookings/seats', async (req, res) => {
   const { userShowtimeId, userMovieId } = req.body;
   try {
     const bookings = await Booking.find({ showtime: userShowtimeId, movieId: userMovieId });
-    
     const seats = bookings.flatMap(booking => booking.seats);
-
     res.json(seats);
   } catch (err) {
     console.error(err);
@@ -149,6 +143,7 @@ router.post('/bookings/seats', async (req, res) => {
   }
 });
 
+// Update booking
 router.put('/bookings/:bookingId', authenticate, bookingController.updateBooking);
 
 module.exports = router;

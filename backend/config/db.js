@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 // Replace 'your_database_uri' with your actual MongoDB connection string
-const dbURI =  process.env.DB_URI ||'mongodb+srv://zeina:UZQUWdCvK3uPfx7O@movie.bacfcil.mongodb.net/';
+const dbURI = 'mongodb+srv://batoul:12345678b@movie.bacfcil.mongodb.net/';
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,

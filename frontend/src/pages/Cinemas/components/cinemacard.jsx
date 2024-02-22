@@ -1,7 +1,6 @@
 // CinemaCard.js
-import React from 'react';
 import { FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
-import './CinemaCard.css';
+import './cinemacard.css';
 
 const API_KEY = 'AIzaSyAtIXkVnICdaJ0eG3J04NRTNYO0Xnv_2XM';
 
