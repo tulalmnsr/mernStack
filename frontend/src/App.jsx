@@ -5,6 +5,7 @@ import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+
 import "./styles/styles.css";
 import "./styles/queries.css";
 

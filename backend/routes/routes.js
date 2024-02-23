@@ -31,7 +31,7 @@ router.get('/latestMovies', movieController.getAllMovies);
 router.post('/showtimes/cinema', showtimesController.getShowtimesByCinema); 
 
 // Retrieve all showtimes
-router.get('/', showtimesController.getAllShowtimes);  
+router.get('/', movieController.getAllMovies);  
 
 // Update a showtime by ID
 router.put('/:id', showtimesController.updateShowtime);  
